@@ -1,0 +1,127 @@
+img[data-action='lumos'] {
+  cursor: zoom-in;
+}
+
+#lumos {
+  &-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 1920px;
+    height: 1546px;
+    @media (max-width: $bp-xlarge) {
+      width: 100vw;
+      height: 100vh;
+    }
+    overflow-y: auto;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 2017px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      @media (max-width: $bp-xlarge) {
+        height: auto;
+        overflow-y: auto;
+      }
+    }
+    padding: $lumos-padding;
+    user-select: none;
+    transition: all $lumos-transition-duration ease-in-out;
+    will-change: opacity;
+
+    opacity: 0;
+    background: $container-gradient;
+
+    &.visible {
+      display: flex;
+      z-index: 9999;
+
+      animation-name: lumos-animate-in;
+      animation-duration: $lumos-transition-duration;
+      animation-fill-mode: forwards;
+    }
+    &.hidden {
+      display: flex;
+
+      animation: lumos-animate-out;
+      animation-duration: $lumos-transition-duration;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &-figure {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    @media (max-width: $bp-xlarge) {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    margin: -93px 0 -70px 0;
+  }
+
+  &-image {
+    overflow: hidden;
+    object-fit: contain;
+    border: 1px solid $color-font;
+    max-width: 1600px;
+    width: auto;
+    max-height: 1066px;
+    height: auto;
+    margin-top: -20px;
+    margin-left: 0;
+
+    @media (max-width: $bp-xlarge) {
+      max-width: 100%;
+      max-height: 100%;
+      margin-bottom: 56px;
+    }
+  }
+
+  &-caption {
+    text-align: center;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 82px;
+    margin-top: -56px;
+    margin-bottom: 170px;
+
+    @media (max-width: $bp-xlarge) {
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+    color: $color-font;
+  }
+
+  &-link {
+  }
+}
+
+@keyframes lumos-animate-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes lumos-animate-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

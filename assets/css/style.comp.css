@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #f3ffe2;
+  font-weight: 400; }
+
+.container {
+  padding-top: 5.125rem;
+  margin: 0 auto;
+  color: #f3ffe2;
+  height: auto;
+  max-width: 1920px;
+  background: linear-gradient(180deg, #38b3bf 0%, #1695a3 100%); }
+
+section.new-zeland .header {
+  display: block;
+  margin: 0 16px; }
+  section.new-zeland .header .header__title {
+    text-align: center;
+    font-weight: 800;
+    max-width: 485px;
+    margin: 0 auto 24px;
+    font-size: 72px;
+    line-height: 98px; }
+  section.new-zeland .header .header__subtitle {
+    max-width: 921px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 39px; }
+
+section.new-zeland .box-images {
+  padding-top: 90px;
+  padding-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap; }
+  @media (max-width: 1420px) {
+    section.new-zeland .box-images {
+      padding-top: 112px;
+      padding-bottom: 80px; } }
+  section.new-zeland .box-images .box-images__item {
+    width: 50%;
+    margin: 102px 0 81px 0; }
+    @media (max-width: 1420px) {
+      section.new-zeland .box-images .box-images__item {
+        margin: 8px 0 8px 0; } }
+    @media (max-width: 1420px) {
+      section.new-zeland .box-images .box-images__item {
+        width: 100%; } }
+    section.new-zeland .box-images .box-images__item .block {
+      margin: 0 auto;
+      height: 700px;
+      max-width: 700px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 1080px auto;
+      border: 1px solid #f3ffe2; }
+      @media (max-width: 760px) {
+        section.new-zeland .box-images .box-images__item .block {
+          height: 270px;
+          max-width: 270px;
+          padding-top: 80px;
+          padding-bottom: 48px; } }
+    section.new-zeland .box-images .box-images__item .block--circle {
+      border-radius: 50%; }
+  section.new-zeland .box-images .box-images__item--w-100 {
+    width: 100%; }
+  section.new-zeland .box-images .box-images__item--odd {
+    padding: 18px 0 0 62px; }
+  section.new-zeland .box-images .box-images__item--even {
+    padding: 15px 60px 0 0; }
+  @media (max-width: 1650px) {
+    section.new-zeland .box-images .box-images__item--odd,
+    section.new-zeland .box-images .box-images__item--even {
+      padding: 0;
+      margin-bottom: 50px; } }
+
+.lumos-button-close {
+  position: fixed;
+  right: 12px;
+  top: 104px;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 90px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 0 0;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in;
+  width: 100px; }
+  @media (max-width: 760px) {
+    .lumos-button-close {
+      display: none; } }
+  @media (max-width: 1900px) {
+    .lumos-button-close {
+      line-height: 36px;
+      top: 72px;
+      width: 72px; } }
+
+.lumos-button-close::before,
+.lumos-button-close::after {
+  background-color: white;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  transition: all 0.2s ease-in;
+  width: 141.4214px;
+  z-index: -1; }
+  @media (max-width: 1900px) {
+    .lumos-button-close::before,
+    .lumos-button-close::after {
+      width: 100px; } }
+
+.lumos-button-close::before {
+  top: 0;
+  transform: rotate(45deg); }
+
+.lumos-button-close::after {
+  bottom: 0;
+  transform: rotate(-45deg); }
+
+img[data-action='lumos'] {
+  cursor: zoom-in; }
+
+#lumos-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 1920px;
+  height: 1546px;
+  overflow-y: auto;
+  padding: 2rem;
+  user-select: none;
+  transition: all 350ms ease-in-out;
+  will-change: opacity;
+  opacity: 0;
+  background: linear-gradient(180deg, #38b3bf 0%, #1695a3 100%); }
+  @media (max-width: 1900px) {
+    #lumos-container {
+      width: 100vw;
+      height: 100vh; } }
+  #lumos-container:after {
+    content: '';
+    display: block;
+    height: 2017px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+    @media (max-width: 1900px) {
+      #lumos-container:after {
+        height: auto;
+        overflow-y: auto; } }
+  #lumos-container.visible {
+    display: flex;
+    z-index: 9999;
+    animation-name: lumos-animate-in;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards; }
+  #lumos-container.hidden {
+    display: flex;
+    animation: lumos-animate-out;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards; }
+
+#lumos-figure {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: -93px 0 -70px 0; }
+  @media (max-width: 1900px) {
+    #lumos-figure {
+      max-width: 100%;
+      max-height: 100%; } }
+
+#lumos-image {
+  overflow: hidden;
+  object-fit: contain;
+  border: 1px solid #f3ffe2;
+  max-width: 1600px;
+  width: auto;
+  max-height: 1066px;
+  height: auto;
+  margin-top: -20px;
+  margin-left: 0; }
+  @media (max-width: 1900px) {
+    #lumos-image {
+      max-width: 100%;
+      max-height: 100%;
+      margin-bottom: 56px; } }
+
+#lumos-caption {
+  text-align: center;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 82px;
+  margin-top: -56px;
+  margin-bottom: 170px;
+  color: #f3ffe2; }
+  @media (max-width: 1900px) {
+    #lumos-caption {
+      margin-top: 0;
+      margin-bottom: 40px; } }
+
+@keyframes lumos-animate-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes lumos-animate-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.copyright {
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: center;
+  color: #f3ffe2;
+  background: #000; }
+  .copyright .copyright__link {
+    text-decoration: none;
+    color: #f3ffe2;
+    font-size: 12px; }

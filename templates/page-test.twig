@@ -1,0 +1,48 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<template id="lumos-template">
+    <div id="lumos-container">
+        <figure id="lumos-figure">
+            <button class="lumos-button-close">close</button>
+            <figcaption id="lumos-caption"></figcaption>
+            <img src="" alt="" id="lumos-image">
+        </figure>
+    </div>
+</template>
+
+<div class="container">
+    <section class="new-zeland">
+        <div class="header">
+            <h1 class="header__title">{{ post.title|e('html')  }}</h1>
+            <div class="header__subtitle">{{ post.content  }}</div>
+        </div><!-- ./header -->
+        <div class="box-images-wrapper">
+
+            {% set items = post.meta('add_image') %}
+            {% set counter = 1 %}
+            {% set length = post.meta('add_image')|length %}
+
+            <div class="box-images">
+                {% for item in items %}
+                <div
+                    class="box-images__item {{ counter is even ? 'box-images__item--even' : 'box-images__item--odd'}} {{ (length is odd and length == counter) ? 'box-images__item--w-100' }}">
+                    <div data-lumos-caption="{{ item.image.caption }}" data-action="lumos"
+                        data-lumos-src="{{  Image(item.image.url) }}" data-lumos-alt="{{ item.image.alt }}"
+                        class="block {{  item.image_frame == 'Circle' ? 'block--circle' : block--square }}"
+                        style="background-image: url( {{ Image(item.image.url) }} )"></div><!-- ./block -->
+                </div><!-- ./box-images__item  -->
+                {% set counter = counter + 1  %}
+                {% endfor %}
+            </div><!-- ./box-images -->
+        </div><!-- ./box-images-wrapper -->
+    </section>
+</div><!--./container-->
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ site.theme.link }}/assets/js/lumos.min.js"></script>
+{% endblock %}
