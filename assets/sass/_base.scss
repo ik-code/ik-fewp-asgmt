@@ -1,0 +1,45 @@
+// COLOR VARIABLES
+$color-font: #f3ffe2;
+
+// FONT VARIABLES
+$font-primary: 'Open Sans', sans-serif;
+
+//CONTAINER GRADIENT
+$container-gradient: linear-gradient(180deg, #38b3bf 0%, #1695a3 100%);
+
+// RESPONSIVE BREAKPOINTS
+$bp-xlarge: 1900px; // 1900px;
+$bp-sxlarge: 1650px; // 1650px
+$bp-large: 1420px; // 1420px
+$bp-medium: 760px; // 760px;
+
+//LUMOS
+$lumos-transition-duration: 350ms;
+$lumos-padding: 2rem;
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-font;
+  font-weight: 400;
+}
+
+.container {
+  padding-top: 5.125rem;
+  margin: 0 auto;
+  color: $color-font;
+  height: auto;
+  max-width: 1920px;
+  background: $container-gradient;
+}
